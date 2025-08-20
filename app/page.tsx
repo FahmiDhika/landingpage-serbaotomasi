@@ -7,6 +7,7 @@ import Testimoni from "../components/testimoni";
 import Cta from "../components/cta";
 import FAQSection from "../components/faq";
 import Hero from "../components/hero";
+import Header from "@/components/header";
 
 export default function Page() {
   const produk = [
@@ -14,6 +15,7 @@ export default function Page() {
       foto: "/assets/jwstv.jpg",
       nama: "Jam Shalat Waktu TV",
       harga: 1950000,
+      tag: "Produk Paling Unik",
       deskripsi:
         "Jam Waktu Shalat yang bisa di tampilkan di TV. Merupakan alat android portable yang bisa dibawa kemana mana dan fleksibel ditaruh dimana saja.",
     },
@@ -21,6 +23,7 @@ export default function Page() {
       foto: "/assets/mesinautotartil.jpg",
       nama: "Mesin Auto Tartil",
       harga: 850000,
+      tag: "Produk Bagus",
       deskripsi:
         "Player TARTIL/TARHIM otomatis menjelang waktu sholat, terintegrasi dengan system audio masjid sehingga amplifier bisa auto on/off sesuai program atau waktu yang ditentukan.",
     },
@@ -28,6 +31,7 @@ export default function Page() {
       foto: "/assets/papanskor.jpeg",
       nama: "Papan Skor",
       harga: 1350000,
+      tag: "Produk Terbaik",
       deskripsi:
         "Papan skor berukuran 20x70cm. Menampilkan skor kedua tim cocok untuk dipasang pada pertandingan speak bola, voli, dan lainnya. Selain itu juga menampilkan timer untuk waktu permainan, dan juga nama tim di tiap sisi.",
     },
@@ -35,6 +39,7 @@ export default function Page() {
       foto: "/assets/jws1.jpeg",
       nama: "Jam Dinding Digital Islami",
       harga: 450000,
+      tag: "Produk Terjangkau",
       deskripsi:
         "Jam dinding yang memiliki desain unik dan ukuran yang relatif kecil. Tersedia dalam 2 jenis, dengan mesan auto tartil dan tidak dengan mesin auto tartil.",
     },
@@ -42,6 +47,7 @@ export default function Page() {
       foto: "/assets/jws2.jpeg",
       nama: "Jam Dinding Digital Islami Full Colour",
       harga: 600000,
+      tag: "Produk Terbaik",
       deskripsi:
         "Jam dinding dengan desain simple minimalis dan full colour. Berukuran 20x40cm, cocok untuk dipasang di ruang keluarga. Tersedia dalam 2 jenis, dengan mesan auto tartil dan tidak dengan mesin auto tartil.",
     },
@@ -49,6 +55,7 @@ export default function Page() {
       foto: "/assets/runningtext2.jpeg",
       nama: "Running Text",
       harga: 900000,
+      tag: "Produk Terbaik",
       deskripsi:
         "Running text dengan versi yang lebih simple dan tersedia dalam 1 warna saja. Cocok dipasang pada restaurant, masjid, toko, warung pinggir jalan. Bisa berfungsi untuk menampilkan promo, produk, dan lainnya.",
     },
@@ -56,6 +63,7 @@ export default function Page() {
       foto: "/assets/runningtext1.jpeg",
       nama: "Running Text Full Colour",
       harga: 1500000,
+      tag: "Produk Terbaik",
       deskripsi:
         "Running text dengan full colour yang sangat cocok dipasang ketika event atau sekedar untuk memperkaya fasilitas.",
     },
@@ -65,19 +73,8 @@ export default function Page() {
     <>
       {/* landing page */}
       <section className="w-full min-h-dvh h-fit px-4 sm:px-8 lg:px-32 pt-6 pb-14 font-sans landingpage-bg">
-        {/* HEADER */}
-        <header className="flex flex-col sm:flex-row justify-between items-center mb-10 gap-4">
-          <Image
-            src={logo}
-            alt="logo"
-            width={200}
-            height={200}
-            className="w-40 sm:w-52 h-auto"
-          />
-          <h1 className="text-xl sm:text-2xl font-bold tracking-wide px-2 border-b-2 text-center sm:text-left">
-            Your Digital Solution.
-          </h1>
-        </header>
+        {/* Header */}
+        <Header />
 
         {/* DESKRIPSI + SIDEBAR */}
         <Hero />
@@ -97,13 +94,27 @@ export default function Page() {
               key={`index-${i}`}
               className="bg-white rounded-xl shadow-xl hover:border border-[#B2212B] w-[90%] sm:w-[450px]"
             >
-              <Image
-                src={produk.foto}
-                alt="foto"
-                width={500}
-                height={500}
-                className="rounded-t-xl object-cover w-full aspect-square shadow-xl"
-              />
+              <div className="relative">
+                <Image
+                  src={produk.foto}
+                  alt="foto"
+                  width={500}
+                  height={500}
+                  className="rounded-t-xl object-cover w-full aspect-square shadow-xl"
+                />
+                {/* Tag Badge */}
+                <span
+                  className="absolute top-4 left-4 bg-[#B2212B] text-white text-xs sm:text-lg font-semibold px-3 py-1 rounded-lg shadow-md"
+                  style={{
+                    textShadow:
+                      "0 0 5px #fff, 0 0 10px #ff4d6d, 0 0 20px #ff1e56, 0 0 20px #ff1e56",
+                    boxShadow:
+                      "0 0 10px #ff4d6d, 0 0 20px #ff1e56, 0 0 20px #ff1e56",
+                  }}
+                >
+                  {produk.tag}
+                </span>
+              </div>
               <div className="p-4 flex flex-col gap-2">
                 <h1 className="font-bold text-lg sm:text-xl break-words">
                   {produk.nama}

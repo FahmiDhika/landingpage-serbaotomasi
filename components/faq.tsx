@@ -28,6 +28,12 @@ const faqs: FAQ[] = [
     answer:
       "Betul, kami melayani pengiriman ke seluruh Indonesia dengan berbagai pilihan ekspedisi yang aman dan cepat.",
   },
+  {
+    question:
+      "Apakah alat yang ada auto tartil nya perlu membeli mesin auto tartil lagi?",
+    answer:
+      "TIDAK. alat yang sudah terdapat auto tartil nya tidak perlu membeli mesin auto tartil lagi.",
+  },
 ];
 
 export default function FAQSection() {
@@ -47,7 +53,7 @@ export default function FAQSection() {
           {faqs.map((faq: FAQ, index: number) => (
             <div
               key={index}
-              className="border rounded-lg overflow-hidden shadow-sm"
+              className="border rounded-lg overflow-auto shadow-sm"
             >
               <button
                 onClick={() => toggleFAQ(index)}
