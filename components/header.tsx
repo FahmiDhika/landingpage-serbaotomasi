@@ -4,18 +4,20 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="flex flex-col sm:flex-row justify-between items-center mb-12 gap-4 px-4">
+    <header className="flex flex-col sm:flex-row justify-between items-center mb-12 gap-4 px-4 border-b-2 pb-4">
       {/* Logo */}
-      <Image
-        src={logo}
-        alt="logo"
-        width={200}
-        height={200}
-        className="w-40 sm:w-52 h-auto"
-      />
+      <Link href={"/"}>
+        <Image
+          src={logo}
+          alt="logo"
+          width={200}
+          height={200}
+          className="w-40 sm:w-52 h-auto"
+        />
+      </Link>
 
       {/* Slogan */}
-      <h1 className="text-xl sm:text-2xl font-bold tracking-wide px-3 py-1 border-b-2 border-gray-400 text-center sm:text-left">
+      <h1 className="text-xl sm:text-2xl font-bold tracking-wide px-3 py-1 border-b-2 text-center sm:text-left">
         Your Digital Solution.
       </h1>
 

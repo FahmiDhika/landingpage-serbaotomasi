@@ -84,7 +84,7 @@ export default function Page() {
         <Hero />
 
         {/* TITLE */}
-        <h1 className="text-2xl sm:text-4xl font-bold text-center">
+        <h1 id="produk" className="text-2xl sm:text-4xl font-bold text-center">
           Beberapa Produk Kami
         </h1>
         <p className="text-center mb-10">
@@ -92,71 +92,73 @@ export default function Page() {
         </p>
 
         {/* PRODUK */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
-          {produk.map((produk, i) => (
-            <div
-              key={`index-${i}`}
-              className="bg-white rounded-xl shadow-lg hover:border border-[#B2212B] w-[85%] sm:w-[350px]" // lebih kecil
-            >
-              <div className="relative">
-                <Image
-                  src={produk.foto}
-                  alt="foto"
-                  width={400}
-                  height={400}
-                  className="rounded-t-xl object-cover w-full aspect-square shadow-md"
-                />
-                {/* Tag Badge */}
-                <span
-                  className="absolute top-4 left-4 bg-[#B2212B] text-white text-xs sm:text-sm font-semibold px-2 py-1 rounded-lg shadow-md"
-                  style={{
-                    textShadow:
-                      "0 0 5px #fff, 0 0 10px #ff4d6d, 0 0 20px #ff1e56, 0 0 20px #ff1e56",
-                    boxShadow:
-                      "0 0 10px #ff4d6d, 0 0 20px #ff1e56, 0 0 20px #ff1e56",
-                  }}
-                >
-                  {produk.tag}
-                </span>
-              </div>
-              <div className="p-3 flex flex-col gap-2">
-                <h1 className="font-bold text-base sm:text-lg break-words">
-                  {produk.nama}
-                </h1>
+        <div className="overflow-x-auto">
+          <div className="flex gap-8 justify-items-center">
+            {produk.map((produk, i) => (
+              <div
+                key={`index-${i}`}
+                className="bg-white rounded-xl shadow-lg hover:border border-[#B2212B] w-[300px] sm:w-[350px] flex-shrink-0" // lebih kecil
+              >
+                <div className="relative">
+                  <Image
+                    src={produk.foto}
+                    alt="foto"
+                    width={400}
+                    height={400}
+                    className="rounded-t-xl object-cover w-full aspect-square shadow-md"
+                  />
+                  {/* Tag Badge */}
+                  <span
+                    className="absolute top-4 left-4 bg-[#B2212B] text-white text-xs sm:text-sm font-semibold px-2 py-1 rounded-lg shadow-md"
+                    style={{
+                      textShadow:
+                        "0 0 5px #fff, 0 0 10px #ff4d6d, 0 0 20px #ff1e56, 0 0 20px #ff1e56",
+                      boxShadow:
+                        "0 0 10px #ff4d6d, 0 0 20px #ff1e56, 0 0 20px #ff1e56",
+                    }}
+                  >
+                    {produk.tag}
+                  </span>
+                </div>
+                <div className="p-3 flex flex-col gap-2">
+                  <h1 className="font-bold text-base sm:text-lg break-words">
+                    {produk.nama}
+                  </h1>
 
-                {/* Harga */}
-                <div className="flex flex-col mb-1">
-                  <p className="text-red-500 text-xs sm:text-sm line-through">
-                    Rp. {(produk.harga * 1.5).toLocaleString()}
+                  {/* Harga */}
+                  <div className="flex flex-col mb-1">
+                    <p className="text-red-500 text-xs sm:text-sm line-through">
+                      Rp. {(produk.harga * 1.5).toLocaleString()}
+                    </p>
+                    <p className="text-zinc-800 font-semibold text-base sm:text-lg">
+                      Rp. {produk.harga.toLocaleString()}
+                    </p>
+                  </div>
+
+                  {/* Deskripsi */}
+                  <p className="text-xs sm:text-sm text-justify line-clamp-3">
+                    {produk.deskripsi}
                   </p>
-                  <p className="text-zinc-800 font-semibold text-base sm:text-lg">
-                    Rp. {produk.harga.toLocaleString()}
+
+                  {/* Terjual */}
+                  <p className="text-lg font-bold text-gray-500 mt-1">
+                    Terjual:{" "}
+                    <span className="font-medium">{produk.terjual}+</span>
                   </p>
                 </div>
 
-                {/* Deskripsi */}
-                <p className="text-xs sm:text-sm text-justify line-clamp-3">
-                  {produk.deskripsi}
-                </p>
-
-                {/* Terjual */}
-                <p className="text-lg font-bold text-gray-500 mt-1">
-                  Terjual:{" "}
-                  <span className="font-medium">{produk.terjual}+</span>
-                </p>
+                {/* Tombol Pesan */}
+                <a
+                  href="https://wa.me/6285336664466"
+                  className="flex justify-end"
+                >
+                  <button className="bg-[#B2212B] cursor-pointer text-white rounded-lg mx-3 mb-3 px-3 py-1.5 hover:bg-red-900 ease-in-out duration-300 text-sm sm:text-base">
+                    Pesan
+                  </button>
+                </a>
               </div>
-
-              {/* Tombol Pesan */}
-              <a
-                href="https://wa.me/6285336664466"
-                className="flex justify-end"
-              >
-                <button className="bg-[#B2212B] cursor-pointer text-white rounded-lg mx-3 mb-3 px-3 py-1.5 hover:bg-red-900 ease-in-out duration-300 text-sm sm:text-base">
-                  Pesan
-                </button>
-              </a>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* WHATSAPP BUTTON */}

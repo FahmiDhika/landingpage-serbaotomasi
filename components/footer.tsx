@@ -2,6 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 import logo from "@/public/assets/logo panjang.png";
+import tiktok from "@/public/assets/tiktok.png";
+import shopee from "@/public/assets/shopee 2.png";
+import tokopedia from "@/public/assets/tokopedia.png";
 
 export default function Footer() {
   return (
@@ -10,9 +13,43 @@ export default function Footer() {
       <Image src={logo} alt="logo" width={160} className="mb-4 sm:mb-6" />
 
       {/* Deskripsi */}
-      <p className="text-base sm:text-lg mb-12 sm:mb-24 max-w-md">
+      <p className="text-base sm:text-lg max-w-md">
         SerbaOtomasi - Toko Jam Digital Masjid & Running Text Murah Terpercaya
       </p>
+
+      {/* SIDEBAR TOKO */}
+      <div className="lg:w-1/5 flex flex-col gap-3 w-full my-10">
+        <Link
+          href="https://tiktok.com/@serbaotomasi"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div className="w-full flex bg-black items-center gap-4 px-4 py-2 rounded-xl shadow-xl">
+            <Image src={tiktok} alt="tiktok" width={40} />
+            <p className="text-white font-bold text-lg sm:text-xl">TikTok</p>
+          </div>
+        </Link>
+        <Link
+          href="https://www.tokopedia.com/serbaotomasi"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div className="w-full flex bg-[#00AA5B] items-center gap-4 px-4 py-2 rounded-xl shadow-xl">
+            <Image src={tokopedia} alt="tokopedia" width={40} />
+            <p className="text-white font-bold text-lg sm:text-xl">Tokopedia</p>
+          </div>
+        </Link>
+        <Link
+          href="https://shopee.co.id/serbaotomasi"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div className="w-full flex bg-[#FC5A31] items-center gap-4 px-4 py-2 rounded-xl shadow-xl">
+            <Image src={shopee} alt="shopee" width={40} />
+            <p className="text-white font-bold text-lg sm:text-xl">Shopee</p>
+          </div>
+        </Link>
+      </div>
 
       {/* Judul Lokasi */}
       <p className="font-semibold text-lg sm:text-xl mb-2">
