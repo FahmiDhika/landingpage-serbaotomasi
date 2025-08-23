@@ -4,6 +4,7 @@ import Link from "next/link";
 import fotoUtama from "@/public/assets/jws2.jpeg";
 import whatsapp from "@/public/assets/whatsapp.png";
 import jws from "@/public/assets/jws1.jpeg";
+import permasalahan from "@/public/assets/Permasalahan.png";
 
 import Footer from "@/components/footer";
 import FAQSection from "@/components/faq";
@@ -70,13 +71,14 @@ export default function Page() {
         <div className="w-full flex justify-center">
           <div className="w-full max-w-4xl flex flex-col items-center text-center gap-12">
             {/* Hero Section */}
-            <div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-snug">
+            {/* Hero Section */}
+            <div className="space-y-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-snug text-gray-900 drop-shadow-md">
                 HADIRKAN KETENANGAN DI RUMAH ANDA
               </h1>
-              <p className="text-lg sm:text-xl md:text-2xl mb-6">
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-700">
                 dengan adanya lantunan{" "}
-                <span className="font-semibold text-green-800 underline">
+                <span className="font-bold text-green-700 underline decoration-green-500">
                   Al Qur`an
                 </span>{" "}
                 di rumah.
@@ -86,50 +88,167 @@ export default function Page() {
                 alt="jws"
                 width={500}
                 height={500}
-                className="w-full max-w-xs sm:max-w-md md:max-w-lg aspect-square rounded-xl shadow-xl object-cover mx-auto"
+                className="w-full max-w-xs sm:max-w-md md:max-w-lg aspect-square rounded-2xl shadow-2xl object-cover mx-auto hover:scale-105 transition-transform duration-500"
               />
             </div>
 
             {/* Masalah Section */}
-            <div className="w-full text-center border-b-4 pb-10">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-6">
-                Apakah ini masalah yang sering dijumpai di rumah anda?
+            <div className="w-full text-center border-t border-b py-12">
+              {/* ⬇️ Tambahin gambar permasalahan disini */}
+              <Image
+                src={permasalahan}
+                alt="Permasalahan"
+                className="mx-auto mb-8 w-full max-w-4xl rounded-xl shadow-lg"
+              />
+
+              <h2 className="text-2xl glow-animate sm:text-3xl font-bold mb-8 text-red-700 drop-shadow-md">
+                PERNAHKAH ANDA MENGALAMI HAL INI? 🤔
               </h2>
-              <ul className="w-fit text-start mx-auto space-y-3 text-base sm:text-lg">
-                <li>❌ Sering terlambat shalat.</li>
-                <li>❌ Rumah terasa sepi.</li>
-                <li>❌ Anak tidak ingin menghafal Al Qur`an.</li>
-              </ul>
-              <p className="mt-6 text-base sm:text-lg font-medium">
-                Jangan biarkan semua masalah ini terus berlanjut hingga anda tua
-                nanti!!
+              {/* Kotak Background Putih */}
+              <div className="bg-gray-200 shadow-xl rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto">
+                <ul className="space-y-4 text-base sm:text-lg font-medium text-gray-800">
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-600 text-xl">❌</span>
+                    <span>
+                      Berapa kali anda harus <b>mengingatkan anak sholat</b>{" "}
+                      dalam sehari?
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-600 text-xl">❌</span>
+                    <span>
+                      Sulitkah mengingatkan <b>anak-anak dan keluarga</b> agar
+                      sholat tepat waktu?
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-600 text-xl">❌</span>
+                    <span>
+                      Anak boleh pintar, tapi kalau{" "}
+                      <b>tidak sholat… apa artinya?</b> 😔
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="mt-10 bg-red-500 text-white px-6 py-6 rounded-2xl shadow-2xl max-w-3xl mx-auto">
+                <p className="text-lg sm:text-xl font-extrabold leading-relaxed text-center tracking-wide ">
+                  ⚠️ Ingatlah,{" "}
+                  <span className="underline decoration-yellow-300">
+                    orang tua
+                  </span>
+                  yang tidak mengingatkan keluarganya sholat <br />
+                  bisa ikut{" "}
+                  <span className="text-yellow-300">menanggung dosanya</span>.
+                </p>
+              </div>
+
+              <h3 className="mt-10 text-xl sm:text-2xl font-bold text-green-700">
+                Solusi:{" "}
+                <span className="underline decoration-green-500">
+                  Jam Sholat Rumahan
+                </span>{" "}
+                ⏰
+              </h3>
+              <p className="mt-4 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed text-gray-700">
+                Dengan fitur{" "}
+                <span className="font-bold text-green-800">Auto Tartil</span>,
+                bukan hanya mengingatkan waktu sholat, tapi juga menghadirkan
+                lantunan Al Qur’an yang menyejukkan hati 🌿
               </p>
+
               <Link href="https://wa.me/6285336664466">
-                <button className="mt-6 bg-[#B2212B] hover:bg-red-700 transition text-white text-xl sm:text-2xl font-bold px-6 py-3 rounded-xl shadow-xl">
-                  Klik Disini Untuk Info Pemesanan!
+                <button className="mt-8 bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 text-white text-lg sm:text-xl font-bold px-8 py-4 rounded-full shadow-xl transition-transform transform hover:scale-110 duration-500">
+                  ✅ Pesan Sekarang & Wujudkan Rumah Penuh Berkah
                 </button>
               </Link>
             </div>
 
             {/* Manfaat Section */}
-            <div className="w-full text-center border-b-4 pb-10">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-6">
-                Buat Rumahmu Menjadi Sejuk Dengan Lantunan Ayat Al Qur`an
+            <div className="w-full text-center border-b pb-12">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-900">
+                Buat Rumahmu Sejuk Dengan Lantunan Al Qur`an
               </h2>
               <Image
                 src={jws}
                 alt="jws"
-                className="aspect-square rounded-xl shadow-xl mb-6 mx-auto w-full max-w-md"
+                className="aspect-square rounded-2xl shadow-lg mb-6 mx-auto w-full max-w-md"
               />
-              <h3 className="text-xl sm:text-2xl font-semibold mb-4">
-                Apa sih manfaatnya?
+              <h3 className="text-xl sm:text-2xl font-semibold mb-6 text-gray-800">
+                Manfaat yang akan dirasakan:
               </h3>
-              <ul className="w-fit text-start mx-auto space-y-3 text-base sm:text-lg">
-                <li>✅ Rumah terasa lebih sejuk karna lantunan Al Qur`an</li>
-                <li>✅ Shalat bisa tepat waktu</li>
-                <li>✅ Mengusir setan jahat dengan ayat suci Al Qur`an</li>
-                <li>✅ Anak mudah menghafal ayat Al Qur`an</li>
+              <ul className="w-fit text-start mx-auto space-y-3 text-base sm:text-lg text-gray-700">
+                <li>✅ Rumah lebih sejuk & penuh keberkahan</li>
+                <li>✅ Shalat tepat waktu</li>
+                <li>✅ Mengusir gangguan setan dengan ayat suci</li>
+                <li>✅ Anak terbiasa & mudah hafal ayat Al Qur`an</li>
               </ul>
+            </div>
+
+            {/* Auto Tartil Section */}
+            <div className="w-full text-center border-b pb-12 bg-gradient-to-r from-green-50 via-white to-green-100 rounded-3xl shadow-inner p-10">
+              <h2 className="text-2xl sm:text-3xl font-extrabold mb-6 text-green-800 drop-shadow-md">
+                ✨ Kenapa Pilih Fitur{" "}
+                <span className="text-red-600">Auto Tartil</span>?
+              </h2>
+              <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto mb-8">
+                Fitur{" "}
+                <span className="font-bold text-green-700">Auto Tartil</span>{" "}
+                bukan sekadar alarm sholat biasa. Saat waktu sholat tiba,
+                lantunan ayat suci Al Qur’an akan diperdengarkan secara
+                otomatis. Inilah manfaat luar biasa yang akan dirasakan keluarga
+                Anda:
+              </p>
+
+              <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto text-left">
+                <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-500">
+                  <h3 className="text-lg font-bold text-green-700 mb-2">
+                    🌿 Hati Lebih Tenang
+                  </h3>
+                  <p className="text-gray-700">
+                    Lantunan Al Qur’an menenangkan suasana rumah dan membuat
+                    hati lebih damai.
+                  </p>
+                </div>
+                <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-500">
+                  <h3 className="text-lg font-bold text-green-700 mb-2">
+                    👨‍👩‍👧 Anak Lebih Mudah Diingatkan
+                  </h3>
+                  <p className="text-gray-700">
+                    Tanpa marah-marah, anak akan terbiasa sholat karena selalu
+                    mendengar tartil Al Qur’an.
+                  </p>
+                </div>
+                <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-500">
+                  <h3 className="text-lg font-bold text-green-700 mb-2">
+                    📖 Membantu Hafalan
+                  </h3>
+                  <p className="text-gray-700">
+                    Dengan sering mendengar ayat suci, anak-anak lebih mudah
+                    menghafal Al Qur’an.
+                  </p>
+                </div>
+                <div className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-500">
+                  <h3 className="text-lg font-bold text-green-700 mb-2">
+                    🕌 Rumah Penuh Berkah
+                  </h3>
+                  <p className="text-gray-700">
+                    Rumah selalu dipenuhi dengan bacaan ayat suci, mengundang
+                    keberkahan & menjauhkan gangguan jin/setan.
+                  </p>
+                </div>
+              </div>
+
+              <p className="mt-10 text-lg sm:text-xl font-semibold text-green-800 max-w-2xl mx-auto">
+                Dengan{" "}
+                <span className="text-red-600 font-bold">Auto Tartil</span>,
+                rumah Anda bukan hanya diingatkan sholat, tapi juga selalu
+                dipenuhi{" "}
+                <span className="underline decoration-green-500">
+                  lantunan Al Qur’an
+                </span>{" "}
+                ✨
+              </p>
             </div>
 
             {/* Produk Section */}
