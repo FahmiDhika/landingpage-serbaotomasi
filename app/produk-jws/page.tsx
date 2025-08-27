@@ -21,6 +21,12 @@ export default function Page() {
       foto: "/assets/jws/jst32 plus.jpeg",
     },
     {
+      nama: "Jam Dinding Digital Islami - JRT40",
+      hargaBiasa: 750000,
+      hargaAuto: 900000,
+      foto: "/assets/jws/jrt40.webp",
+    },
+    {
       nama: "Jam Dinding Digital Islami - JS32A",
       hargaBiasa: 350000,
       hargaAuto: 600000,
@@ -55,12 +61,6 @@ export default function Page() {
       hargaBiasa: 700000,
       hargaAuto: 900000,
       foto: "/assets/jws/js70a.jpeg",
-    },
-    {
-      nama: "Jam Dinding Digital Islami - JRT40",
-      hargaBiasa: 750000,
-      hargaAuto: 900000,
-      foto: "/assets/jws/jrt40.webp",
     },
     {
       nama: "Jam Digital Masjid - JR70 SQ",
@@ -99,13 +99,6 @@ export default function Page() {
                   LUAR BIASA!!
                 </span>
               </p>
-              <Image
-                src={fotoUtama}
-                alt="jws"
-                width={500}
-                height={500}
-                className="w-full max-w-xs sm:max-w-md md:max-w-lg aspect-square rounded-2xl shadow-2xl object-cover mx-auto hover:scale-105 transition-transform duration-500"
-              />
             </div>
 
             {/* Masalah Section */}
@@ -166,12 +159,20 @@ export default function Page() {
                 </span>{" "}
                 ⏰
               </h3>
-              <p className="mt-4 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed text-gray-700">
+              <p className="mt-4 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed text-gray-700 mb-10">
                 Dengan fitur{" "}
                 <span className="font-bold text-green-800">Auto Tartil</span>,
                 bukan hanya mengingatkan waktu sholat, tapi juga menghadirkan
                 lantunan Al Qur’an yang menyejukkan hati 🌿
               </p>
+
+              <Image
+                src={fotoUtama}
+                alt="jws"
+                width={500}
+                height={500}
+                className="w-full max-w-xs sm:max-w-md md:max-w-lg aspect-square rounded-2xl shadow-2xl object-cover mx-auto hover:scale-105 transition-transform duration-500"
+              />
 
               <Link href="https://wa.me/6285336664466">
                 <button className="mt-8 bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 text-white text-lg sm:text-xl font-bold px-8 py-4 rounded-full shadow-xl transition-transform transform hover:scale-110 duration-500">

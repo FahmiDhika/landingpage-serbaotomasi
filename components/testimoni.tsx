@@ -40,9 +40,13 @@ export default function Testimoni() {
   ];
 
   const fotoTestimoni = [
-    "/assets/fototestimoni1.webp",
-    "/assets/fototestimoni2.webp",
-    "/assets/fototestimoni3.png",
+    "/assets/testimoni/fototestimoni1.webp",
+    "/assets/testimoni/fototestimoni2.webp",
+    "/assets/testimoni/fototestimoni3.png",
+    "/assets/testimoni/fototestimoni4.webp",
+    "/assets/testimoni/fototestimoni5.jpg",
+    "/assets/testimoni/fototestimoni6.webp",
+    "/assets/testimoni/fototestimoni7.webp",
   ];
 
   return (
@@ -71,15 +75,17 @@ export default function Testimoni() {
         Beberapa Contoh Pemasangan Produk
       </h1>
 
-      {/* Foto Testimoni Responsive */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-4">
         {fotoTestimoni.map((src, index) => (
-          <div key={index} className="w-full aspect-square relative">
+          <div
+            key={index}
+            className="min-w-[180px] sm:min-w-[220px] lg:min-w-[250px] aspect-square relative flex-shrink-0"
+          >
             <Image
               src={src}
               alt={`foto testi ${index + 1}`}
               fill
-              className="object-cover rounded-lg"
+              className="object-cover rounded-lg shadow-md"
             />
           </div>
         ))}
