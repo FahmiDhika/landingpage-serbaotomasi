@@ -18,6 +18,17 @@
   }
 }
 
+/* globals.css (atau tailwind.css) */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
 body {
   font-family: var(--font-poppins), sans-serif;
 }

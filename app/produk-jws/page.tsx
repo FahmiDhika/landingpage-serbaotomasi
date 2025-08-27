@@ -10,6 +10,7 @@ import Footer from "@/components/footer";
 import FAQSection from "@/components/faq";
 import Testimoni from "@/components/testimoni";
 import Header from "@/components/header";
+import ProdukCarousel from "@/components/produkJws";
 
 export default function Page() {
   const produk = [
@@ -150,7 +151,7 @@ export default function Page() {
                 <p className="text-lg sm:text-xl font-extrabold leading-relaxed text-center tracking-wide ">
                   ⚠️ Ingatlah,{" "}
                   <span className="underline decoration-yellow-300">
-                    orang tua
+                    orang tua{" "}
                   </span>
                   yang tidak mengingatkan keluarganya sholat <br />
                   bisa ikut{" "}
@@ -291,70 +292,8 @@ export default function Page() {
                   </p>
                 </div>
               </div>
-
               {/* Daftar Produk */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {produk.map((item, index) => (
-                  <div
-                    key={index}
-                    className="bg-white rounded-xl shadow-md p-4 flex flex-col items-center hover:shadow-lg hover:shadow-red-600 transition"
-                  >
-                    <Image
-                      src={item.foto}
-                      alt={item.nama}
-                      width={300}
-                      height={300}
-                      className="rounded-lg shadow-sm mb-4 w-full h-64 object-cover"
-                    />
-
-                    {/* Nama Produk */}
-                    <h3 className="text-lg font-bold mb-3 text-center">
-                      {item.nama}
-                    </h3>
-
-                    {/* Harga Coret */}
-                    <div className="mb-2 text-center">
-                      <p className="text-sm text-red-500 line-through">
-                        Rp {(item.hargaBiasa * 1.5).toLocaleString("id-ID")}
-                      </p>
-                      {item.hargaAuto && (
-                        <p className="text-sm text-red-500 line-through">
-                          Rp {(item.hargaAuto * 1.5).toLocaleString("id-ID")}
-                        </p>
-                      )}
-                    </div>
-
-                    {/* Harga Normal */}
-                    <div className="text-center">
-                      <p className="text-sm text-gray-700">
-                        Harga:{" "}
-                        <span className="font-bold text-green-700 text-lg">
-                          Rp {item.hargaBiasa.toLocaleString("id-ID")}
-                        </span>
-                      </p>
-                      {item.hargaAuto && (
-                        <p className="text-sm text-gray-700">
-                          Harga Auto Tartil:{" "}
-                          <span className="font-bold text-green-700 text-lg">
-                            Rp {item.hargaAuto.toLocaleString("id-ID")}
-                          </span>
-                        </p>
-                      )}
-                    </div>
-
-                    {/* Tombol Pesan */}
-                    <Link
-                      href={`https://wa.me/6285336664466?text=Halo, saya mau pesan ${item.nama}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <button className="mt-4 bg-[#B2212B] hover:bg-red-700 transition text-white text-sm font-bold px-6 py-2 rounded-lg shadow cursor-pointer">
-                        Pesan Sekarang
-                      </button>
-                    </Link>
-                  </div>
-                ))}
-              </div>
+              <ProdukCarousel produk={produk} />
             </div>
 
             {/* Hadiah Section */}
