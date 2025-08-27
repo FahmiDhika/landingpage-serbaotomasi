@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import fotoUtama from "@/public/assets/jws2.jpeg";
+import fotoUtama from "@/public/assets/jws/jst32 plus.jpeg";
 import whatsapp from "@/public/assets/whatsapp.png";
 import jws from "@/public/assets/jws1.jpeg";
 import permasalahan from "@/public/assets/Permasalahan.png";
@@ -14,51 +14,64 @@ import Header from "@/components/header";
 export default function Page() {
   const produk = [
     {
-      nama: "Jam Waktu Shalat - JS32A",
+      nama: "Jam Dinding Digital Islami - JST32 PLUS",
+      hargaBiasa: 600000,
+      hargaAuto: 750000,
+      foto: "/assets/jws/jst32 plus.jpeg",
+    },
+    {
+      nama: "Jam Dinding Digital Islami - JS32A",
       hargaBiasa: 350000,
       hargaAuto: 600000,
       foto: "/assets/jws/js32a.jpeg",
     },
     {
-      nama: "Jam Waktu Shalat - JS32 PLUS",
+      nama: "Jam Dinding Digital Islami - JS32 PLUS",
       hargaBiasa: 450000,
       hargaAuto: 700000,
       foto: "/assets/jws/js32 plus.jpeg",
     },
     {
-      nama: "Jam Waktu Shalat - JS475A",
+      nama: "Jam Dinding Digital Islami - JS475A",
       hargaBiasa: 450000,
       hargaAuto: 750000,
       foto: "/assets/jws/js475a.jpeg",
     },
     {
-      nama: "Jam Waktu Shalat - JS475 PLUS",
+      nama: "Jam Dinding Digital Islami - JS475 PLUS",
       hargaBiasa: 550000,
       hargaAuto: 750000,
       foto: "/assets/jws/js475 plus.jpeg",
     },
     {
-      nama: "Jam Waktu Shalat - JR40",
+      nama: "Jam Dinding Digital Islami - JR40",
       hargaBiasa: 600000,
       hargaAuto: 775000,
       foto: "/assets/jws/jr40.jpeg",
     },
     {
-      nama: "Jam Waktu Shalat - JS70A",
+      nama: "Jam Dinding Digital Islami - JS70A",
       hargaBiasa: 700000,
       hargaAuto: 900000,
       foto: "/assets/jws/js70a.jpeg",
     },
     {
-      nama: "Jam Waktu Shalat - JS100",
+      nama: "Jam Dinding Digital Islami - JRT40",
+      hargaBiasa: 750000,
+      hargaAuto: 900000,
+      foto: "/assets/jws/jrt40.webp",
+    },
+    {
+      nama: "Jam Digital Masjid - JR70 SQ",
+      hargaBiasa: 1000000,
+      hargaAuto: 1200000,
+      foto: "/assets/jws/jr70.webp",
+    },
+    {
+      nama: "Jam Digital Masjid - JS100",
       hargaBiasa: 900000,
       hargaAuto: 1200000,
       foto: "/assets/jws/js100.jpeg",
-    },
-    {
-      nama: "Mesin Auto Tartil",
-      hargaBiasa: 750000,
-      foto: "/assets/jws/mesin auto tartil.jpeg",
     },
   ];
 
@@ -73,15 +86,17 @@ export default function Page() {
             {/* Hero Section */}
             {/* Hero Section */}
             <div className="space-y-6">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-snug text-gray-900 drop-shadow-md">
-                HADIRKAN KETENANGAN DI RUMAH ANDA
+              <h1 className="capitalize text-3xl sm:text-4xl md:text-5xl font-extrabold leading-snug text-gray-900 drop-shadow-md">
+                Inilah akibat dari seseorang yang lalai terhadap anak dan
+                keluarga nya!
               </h1>
               <p className="text-lg sm:text-xl md:text-2xl text-gray-700">
-                dengan adanya lantunan{" "}
-                <span className="font-bold text-green-700 underline decoration-green-500">
-                  Al Qur`an
-                </span>{" "}
-                di rumah.
+                sering dianggap{" "}
+                <span className="underline font-semibold">remeh</span>, tapi
+                dampaknya{" "}
+                <span className="text-red-500 font-semibold text-3xl">
+                  LUAR BIASA!!
+                </span>
               </p>
               <Image
                 src={fotoUtama}
@@ -167,7 +182,7 @@ export default function Page() {
             {/* Manfaat Section */}
             <div className="w-full text-center border-b pb-12">
               <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-900">
-                Buat Rumahmu Sejuk Dengan Lantunan Al Qur`an
+                Jam Ini Bukan Sekedar Jam Digital Biasa
               </h2>
               <Image
                 src={jws}
