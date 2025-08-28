@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useLayoutEffect, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -14,15 +14,60 @@ type ProdukItem = {
 
 export default function ProdukCarousel({ produk }: { produk: ProdukItem[] }) {
   const carouselRef = useRef<HTMLDivElement>(null);
+  // Ref to prevent the jump logic from running while a programmatic scroll is happening
+  const isTransitioning = useRef(false);
+
+  // STEP 1: Create a longer array for the infinite loop illusion.
+  // We place a copy of the products before and after the original set.
+  // Example: [c, d, a, b, c, d, a, b]
+  const extendedProduk = useMemo(() => {
+    if (produk.length === 0) return [];
+    // To make it robust, especially with fewer items, we duplicate the list.
+    return [...produk, ...produk, ...produk];
+  }, [produk]);
+
+  // useLayoutEffect runs synchronously after the DOM is updated, preventing any visual flicker.
+  useLayoutEffect(() => {
+    const el = carouselRef.current;
+    if (!el || produk.length === 0) return;
+
+    // STEP 2: Set the initial scroll position to the start of the *middle* set of items.
+    // This is the "real" list, and the user starts here.
+    const initialScrollLeft = el.scrollWidth / 3;
+    el.scrollTo({ left: initialScrollLeft, behavior: "instant" });
+  }, [produk]);
 
   const scroll = (direction: "left" | "right") => {
     const el = carouselRef.current;
-    if (!el) return;
+    if (!el || isTransitioning.current) return;
+
     const delta = direction === "left" ? -el.clientWidth : el.clientWidth;
     el.scrollTo({
       left: el.scrollLeft + delta,
       behavior: "smooth",
     });
+  };
+
+  // STEP 3: Handle the "jump" when the user scrolls to the cloned sections.
+  const handleScroll = () => {
+    const el = carouselRef.current;
+    if (!el || produk.length === 0) return;
+
+    // We use a small buffer to prevent precision errors
+    const buffer = 1;
+    const oneSetWidth = el.scrollWidth / 3;
+
+    // If scrolled to the end (the right-side clone)
+    if (el.scrollLeft >= oneSetWidth * 2 - buffer) {
+      // Jump back to the start of the middle set without animation
+      el.scrollTo({ left: el.scrollLeft - oneSetWidth, behavior: "instant" });
+    }
+
+    // If scrolled to the beginning (the left-side clone)
+    if (el.scrollLeft <= buffer) {
+      // Jump forward to the end of the middle set without animation
+      el.scrollTo({ left: el.scrollLeft + oneSetWidth, behavior: "instant" });
+    }
   };
 
   return (
@@ -39,10 +84,17 @@ export default function ProdukCarousel({ produk }: { produk: ProdukItem[] }) {
       {/* Track */}
       <div
         ref={carouselRef}
+        // STEP 4: Add the onScroll event listener to trigger the jump logic.
+        onScroll={handleScroll}
         className="flex overflow-x-auto scroll-smooth no-scrollbar gap-6 px-2"
       >
-        {produk.map((item, index) => (
-          <div key={index} className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3">
+        {/* STEP 5: Map over the new, extended array */}
+        {extendedProduk.map((item, index) => (
+          // Use a more unique key since item names could repeat
+          <div
+            key={`${item.nama}-${index}`}
+            className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3"
+          >
             <div className="bg-white rounded-xl shadow-md p-4 flex flex-col items-center hover:shadow-lg hover:shadow-red-600 transition h-full">
               <Image
                 src={item.foto}

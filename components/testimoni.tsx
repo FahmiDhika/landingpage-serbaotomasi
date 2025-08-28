@@ -1,4 +1,8 @@
+"use client";
+
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useMemo, useRef } from "react";
 
 export default function Testimoni() {
   const testimoni = [
@@ -39,15 +43,62 @@ export default function Testimoni() {
     },
   ];
 
-  const fotoTestimoni = [
-    "/assets/testimoni/fototestimoni1.webp",
-    "/assets/testimoni/fototestimoni2.webp",
-    "/assets/testimoni/fototestimoni3.png",
-    "/assets/testimoni/fototestimoni4.webp",
-    "/assets/testimoni/fototestimoni5.jpg",
-    "/assets/testimoni/fototestimoni6.webp",
-    "/assets/testimoni/fototestimoni7.webp",
-  ];
+  const fotoTestimoni = useMemo(
+    () => [
+      "/assets/testimoni/fototestimoni11.png",
+      "/assets/testimoni/fototestimoni1.webp",
+      "/assets/testimoni/fototestimoni2.webp",
+      "/assets/testimoni/fototestimoni3.png",
+      "/assets/testimoni/fototestimoni4.webp",
+      "/assets/testimoni/fototestimoni9.jpeg",
+      "/assets/testimoni/fototestimoni5.png",
+      "/assets/testimoni/fototestimoni10.jpeg",
+      "/assets/testimoni/fototestimoni6.png",
+      "/assets/testimoni/fototestimoni7.webp",
+      "/assets/testimoni/fototestimoni12.png",
+      "/assets/testimoni/fototestimoni8.jpeg",
+    ],
+    []
+  );
+
+  // === INFINITE LOOP LOGIC (mirip ProdukCarousel) ===
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  const extendedFoto = useMemo(() => {
+    if (fotoTestimoni.length === 0) return [];
+    return [...fotoTestimoni, ...fotoTestimoni, ...fotoTestimoni]; // duplikat 3x
+  }, [fotoTestimoni]);
+
+  // posisikan scroll di "set tengah"
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el || fotoTestimoni.length === 0) return;
+    const oneSetWidth = el.scrollWidth / 3;
+    el.scrollTo({ left: oneSetWidth, behavior: "instant" });
+  }, [fotoTestimoni]);
+
+  // handle looping
+  const handleScroll = () => {
+    const el = carouselRef.current;
+    if (!el) return;
+    const oneSetWidth = el.scrollWidth / 3;
+    const buffer = 1;
+
+    if (el.scrollLeft >= oneSetWidth * 2 - buffer) {
+      el.scrollTo({ left: el.scrollLeft - oneSetWidth, behavior: "instant" });
+    }
+    if (el.scrollLeft <= buffer) {
+      el.scrollTo({ left: el.scrollLeft + oneSetWidth, behavior: "instant" });
+    }
+  };
+
+  // navigasi manual
+  const scroll = (dir: "left" | "right") => {
+    const el = carouselRef.current;
+    if (!el) return;
+    const delta = dir === "left" ? -el.clientWidth : el.clientWidth;
+    el.scrollBy({ left: delta, behavior: "smooth" });
+  };
 
   return (
     <section className="w-full h-fit px-4 sm:px-8 lg:px-32 pt-9 pb-14 bg-zinc-100 font-sans">
@@ -55,7 +106,7 @@ export default function Testimoni() {
         Kata Mereka
       </h1>
 
-      {/* List Testimoni */}
+      {/* List Testimoni (teks) */}
       <div className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 mb-14">
         {testimoni.map((t, i) => (
           <div
@@ -75,20 +126,41 @@ export default function Testimoni() {
         Beberapa Contoh Pemasangan Produk
       </h1>
 
-      <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-4">
-        {fotoTestimoni.map((src, index) => (
-          <div
-            key={index}
-            className="min-w-[180px] sm:min-w-[220px] lg:min-w-[250px] aspect-square relative flex-shrink-0"
-          >
-            <Image
-              src={src}
-              alt={`foto testi ${index + 1}`}
-              fill
-              className="object-cover rounded-lg shadow-md"
-            />
-          </div>
-        ))}
+      {/* FOTO CAROUSEL */}
+      <div className="relative w-full">
+        <div
+          ref={carouselRef}
+          onScroll={handleScroll}
+          className="flex overflow-x-auto scroll-smooth no-scrollbar gap-4"
+        >
+          {extendedFoto.map((src, i) => (
+            <div
+              key={i}
+              className="flex-shrink-0 min-w-[200px] sm:min-w-[250px] lg:min-w-[280px] aspect-square relative"
+            >
+              <Image
+                src={src}
+                alt={`foto testi ${i}`}
+                fill
+                className="object-cover rounded-lg shadow-md"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Tombol navigasi */}
+        <button
+          onClick={() => scroll("left")}
+          className="absolute left-2 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-200"
+        >
+          <ChevronLeft className="w-6 h-6 text-gray-700" />
+        </button>
+        <button
+          onClick={() => scroll("right")}
+          className="absolute right-2 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-200"
+        >
+          <ChevronRight className="w-6 h-6 text-gray-700" />
+        </button>
       </div>
     </section>
   );
