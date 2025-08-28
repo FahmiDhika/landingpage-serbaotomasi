@@ -8,7 +8,7 @@ import permasalahan from "@/public/assets/Permasalahan.png";
 
 import Footer from "@/components/footer";
 import FAQSection from "@/components/faq";
-import Testimoni from "@/components/testimoni";
+import TestimoniJWS from "@/components/testimoniJws";
 import Header from "@/components/header";
 import ProdukCarousel from "@/components/produkJws";
 
@@ -457,7 +457,7 @@ export default function Page() {
       </section>
 
       {/* testimoni */}
-      <Testimoni />
+      <TestimoniJWS />
 
       {/* faq */}
       <FAQSection />
