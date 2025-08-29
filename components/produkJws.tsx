@@ -4,6 +4,7 @@ import { useRef, useLayoutEffect, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import TombolWA from "./tombolWa";
 
 type ProdukItem = {
   foto: string;
@@ -138,15 +139,9 @@ export default function ProdukCarousel({ produk }: { produk: ProdukItem[] }) {
                 )}
               </div>
 
-              <Link
-                href={`https://wa.me/6285336664466?text=Halo, saya mau pesan ${item.nama}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <button className="mt-4 bg-[#B2212B] hover:bg-red-700 transition text-white text-sm font-bold px-6 py-2 rounded-lg shadow cursor-pointer">
-                  Pesan Sekarang
-                </button>
-              </Link>
+              <div className="flex justify-end mx-3 mb-3">
+                <TombolWA phone="6285336664466" label="Pesan" />
+              </div>
             </div>
           </div>
         ))}

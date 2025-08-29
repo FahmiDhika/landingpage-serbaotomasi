@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import fotoUtama from "@/public/assets/jws/jst32 plus.jpeg";
+import fotoKedua from "@/public/assets/jws/jrt40.webp";
 import whatsapp from "@/public/assets/whatsapp.png";
 import jws from "@/public/assets/jws1.jpeg";
 import permasalahan from "@/public/assets/Permasalahan.png";
@@ -11,6 +12,7 @@ import FAQSection from "@/components/faq";
 import TestimoniJWS from "@/components/testimoniJws";
 import Header from "@/components/header";
 import ProdukCarousel from "@/components/produkJws";
+import TombolWA from "@/components/tombolWa";
 
 export default function Page() {
   const produk = [
@@ -174,11 +176,14 @@ export default function Page() {
                 className="w-full max-w-xs sm:max-w-md md:max-w-lg aspect-square rounded-2xl shadow-2xl object-cover mx-auto hover:scale-105 transition-transform duration-500"
               />
 
-              <Link href="https://wa.me/6285336664466">
-                <button className="mt-8 bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 text-white text-lg sm:text-xl font-bold px-8 py-4 rounded-full shadow-xl transition-transform transform hover:scale-110 duration-500">
-                  ✅ Pesan Sekarang & Wujudkan Rumah Penuh Berkah
-                </button>
-              </Link>
+              {/* Tombol Pesan */}
+              <div className="flex justify-center mt-10">
+                <TombolWA
+                  phone="6285336664466"
+                  label="Pesan Sekarang"
+                  floating={false}
+                />
+              </div>
             </div>
 
             {/* Manfaat Section */}
@@ -307,7 +312,7 @@ export default function Page() {
               {/* Product Image */}
               <div className="w-full flex justify-center mb-10">
                 <Image
-                  src={fotoUtama}
+                  src={fotoKedua}
                   alt="produk"
                   width={500}
                   height={350}
@@ -358,6 +363,40 @@ export default function Page() {
               </div>
             </div>
 
+            {/* Poster Cinderamata Section */}
+            <div className="w-full text-center border-b-4 pb-10">
+              <h2 className="font-extrabold text-2xl sm:text-3xl text-gray-900 mb-6">
+                MENYEDIAKAN CENDERAMATA EKSKLUSIF
+              </h2>
+
+              <Image
+                src="/assets/cinderamata.png"
+                alt="Poster Cinderamata"
+                width={800}
+                height={100}
+                className="mx-auto rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500"
+              />
+
+              <p className="mt-6 text-base sm:text-lg text-gray-700 max-w-2xl mx-auto">
+                Cinderamata premium yang dapat menjadi pilihan tepat untuk
+                perusahaan, acara khusus, maupun hadiah pribadi.
+              </p>
+
+              {/* Highlight Points */}
+              <div className="mt-6 flex flex-col items-center gap-3">
+                <p className="bg-red-100 text-red-700 font-semibold px-4 py-2 rounded-full shadow-md w-fit text-xl">
+                  🎁 Cocok untuk hadiah perusahaan & relasi bisnis
+                </p>
+                <p className="bg-green-100 text-green-700 font-semibold px-4 py-2 rounded-full shadow-md w-fit text-xl">
+                  ✨ Pilihan terbaik untuk acara pernikahan & momen spesial
+                </p>
+                <p className="bg-blue-100 text-blue-700 font-semibold px-4 py-2 rounded-full shadow-md w-fit text-xl">
+                  🌍 Dapat dijadikan koleksi pribadi maupun kenang-kenangan
+                  eksklusif
+                </p>
+              </div>
+            </div>
+
             {/* Promo Section */}
             <div className="w-full text-center py-10 sm:py-14 px-4 bg-gradient-to-r from-red-100 via-white to-red-100 rounded-xl shadow-lg">
               {/* Title */}
@@ -368,12 +407,30 @@ export default function Page() {
 
               {/* Promo Image */}
               <Image
-                src="/assets/promo.png"
+                src="/assets/promo 2.png"
                 alt="promo"
                 width={400}
                 height={300}
                 className="mx-auto w-64 sm:w-[400px] md:w-[700px] rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
               />
+
+              {/* Promo Highlight Points */}
+              <div className="mt-8 grid gap-4 sm:grid-cols-1 md:grid-cols-3 max-w-4xl mx-auto">
+                <div className="flex items-center gap-3 bg-green-100 text-green-800 font-semibold p-4 rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
+                  <span className="text-2xl">📦</span>
+                  <p>Kirim dulu, barang sampai, baru bayar di tempat</p>
+                </div>
+
+                <div className="flex items-center gap-3 bg-yellow-100 text-yellow-800 font-semibold p-4 rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
+                  <span className="text-2xl">🛡️</span>
+                  <p>Packing aman, garansi 100%</p>
+                </div>
+
+                <div className="flex items-center gap-3 bg-blue-100 text-blue-800 font-semibold p-4 rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
+                  <span className="text-2xl">🚚</span>
+                  <p>Menerima pengiriman dari seluruh Indonesia</p>
+                </div>
+              </div>
 
               {/* Icons */}
               <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-8 mt-8">
@@ -424,36 +481,17 @@ export default function Page() {
               </div>
 
               {/* CTA Button */}
-              <div className="mt-8 sm:mt-10">
-                <Link href="https://wa.me/6285336664466">
-                  <button className="bg-gradient-to-r from-red-500 to-red-700 text-white text-base sm:text-lg font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg hover:scale-110 transition-transform duration-300">
-                    🎁 Pesan Sekarang & Nikmati Promonya!
-                  </button>
-                </Link>
+              <div className="mt-8 sm:mt-10 w-full flex justify-center">
+                <TombolWA
+                  phone="6285336664466"
+                  label="Pesan Sekarang & Nikmati Promonya!"
+                />
               </div>
             </div>
           </div>
         </div>
 
-        {/* Floating WA Button */}
-        <Link
-          href="https://wa.me/6285336664466"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div className="fixed flex items-center justify-center gap-3 right-4 sm:right-10 bottom-4 sm:bottom-10 bg-[#25D366] text-base sm:text-lg md:text-xl px-4 sm:px-6 py-3 rounded-full shadow-xl z-10">
-            <Image
-              src={whatsapp}
-              alt="wa"
-              width={28}
-              height={28}
-              className="sm:w-10 sm:h-10"
-            />
-            <span className="font-bold text-white drop-shadow-xl">
-              WhatsApp
-            </span>
-          </div>
-        </Link>
+        <TombolWA phone="6285336664466" label="WhatsApp" floating />
       </section>
 
       {/* testimoni */}

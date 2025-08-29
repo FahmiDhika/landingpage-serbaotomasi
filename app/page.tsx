@@ -7,6 +7,7 @@ import Cta from "../components/cta";
 import FAQSection from "../components/faq";
 import Hero from "../components/hero";
 import Header from "@/components/header";
+import TombolWA from "@/components/tombolWa";
 
 export default function Page() {
   const produk = [
@@ -148,36 +149,16 @@ export default function Page() {
                 </div>
 
                 {/* Tombol Pesan */}
-                <a
-                  href="https://wa.me/6285336664466"
-                  className="flex justify-end"
-                >
-                  <button className="bg-[#B2212B] cursor-pointer text-white rounded-lg mx-3 mb-3 px-3 py-1.5 hover:bg-red-900 ease-in-out duration-300 text-sm sm:text-base">
-                    Pesan
-                  </button>
-                </a>
+                <div className="flex justify-end mx-3 mb-3">
+                  <TombolWA phone="6285336664466" label="Pesan" />
+                </div>
               </div>
             ))}
           </div>
         </div>
 
         {/* WHATSAPP BUTTON */}
-        <Link
-          href="https://wa.me/6285336664466"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div className="fixed flex items-center justify-center gap-3 sm:gap-4 right-4 sm:right-10 bottom-4 sm:bottom-10 bg-[#25D366] text-lg sm:text-2xl px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-xl z-10">
-            <Image
-              src={whatsapp}
-              alt="wa"
-              width={32}
-              height={32}
-              className="sm:w-12 sm:h-12"
-            />
-            <h1 className="font-bold text-white drop-shadow-xl">WhatsApp</h1>
-          </div>
-        </Link>
+        <TombolWA phone="6285336664466" label="WhatsApp" floating />
       </section>
 
       {/* testimoni */}

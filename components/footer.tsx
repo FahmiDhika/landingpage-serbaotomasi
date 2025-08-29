@@ -83,15 +83,18 @@ export default function Footer() {
         </p>
       </div>
 
-      {/* Link Maps */}
-      <Link
-        href="https://maps.app.goo.gl/hhTyjSXRsw5krkMf6"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="pl-0 sm:pl-6 text-blue-600 hover:underline"
-      >
-        Lihat di Maps →
-      </Link>
+      {/* Google Maps Embed */}
+      <div className="w-full h-[400px] rounded-xl overflow-hidden shadow-lg mb-6">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.5611076925597!2d112.62157048394111!3d-7.940820358663748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd629e991f19ca9%3A0x91e8c6f27cd5d74b!2sWorkshop%20SerbaOtomasi!5e0!3m2!1sid!2sid!4v1756440691248!5m2!1sid!2sid"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </div>
 
       {/* Footer */}
       <div className="border-t pt-6 mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">

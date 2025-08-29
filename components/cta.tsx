@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import whatsapp from "@/public/assets/whatsapp.png";
+import TombolWA from "./tombolWa";
 
 export default function Cta() {
   return (
@@ -96,24 +97,9 @@ export default function Cta() {
         />
       </svg>
 
-      <Link
-        href="https://wa.me/6285336664466"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <div className="flex items-center justify-center gap-3 bg-[#25D366] text-lg sm:text-2xl px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-xl">
-          <Image
-            src={whatsapp}
-            alt="wa"
-            width={32}
-            height={32}
-            className="sm:w-12 sm:h-12"
-          />
-          <h1 className="font-bold text-white drop-shadow-xl">
-            0853-3666-4466
-          </h1>
-        </div>
-      </Link>
+      <div className="flex justify-end mx-3 mb-3">
+        <TombolWA phone="6285336664466" label="0853-3666-4466" />
+      </div>
     </section>
   );
 }
