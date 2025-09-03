@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
         </Link>
         <Link
-          href="https://shopee.co.id/serbaotomasi"
+          href="https://shopee.co.id/serbaotomasi1"
           target="_blank"
           rel="noopener noreferrer"
         >
