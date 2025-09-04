@@ -1,9 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import fotoUtama from "@/public/assets/jws/jst32 plus.jpeg";
 import fotoKedua from "@/public/assets/jws/jrt40.webp";
-import whatsapp from "@/public/assets/whatsapp.png";
 import jws from "@/public/assets/jws1.jpeg";
 import permasalahan from "@/public/assets/Permasalahan.png";
 
@@ -13,6 +11,7 @@ import TestimoniJWS from "@/components/testimoniJws";
 import Header from "@/components/header";
 import ProdukCarousel from "@/components/produkJws";
 import TombolWA from "@/components/tombolWa";
+import ProdukBelowTesti from "@/components/produkBelowTesti";
 
 export default function Page() {
   const produk = [
@@ -496,6 +495,8 @@ export default function Page() {
 
       {/* testimoni */}
       <TestimoniJWS />
+
+      <ProdukBelowTesti />
 
       {/* faq */}
       <FAQSection />

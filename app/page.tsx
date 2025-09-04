@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import whatsapp from "../public/assets/whatsapp.png";
 import Footer from "../components/footer";
 import Testimoni from "../components/testimoni";
 import Cta from "../components/cta";
